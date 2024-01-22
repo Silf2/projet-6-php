@@ -1,0 +1,164 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+}
+
+h1{
+    font-family: 'Playfair Display';
+    font-weight: normal;
+    font-size: 45px;
+}
+
+button{
+    margin-top: 2%;
+    color: #FFFFFF;
+    background-color: #00AC66;
+    border: none;
+    font-size: 25px;
+    padding: 2%;
+    border-radius: 15px;
+}
+
+/*Header*/
+header{
+    background-color: #F5F3EF;
+    display: flex;
+    justify-content: space-around;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+header div{
+    display: flex;
+    
+}
+header p{
+    font-size: 17px;
+    padding-top: 1%;
+}
+
+header p:hover{
+    font-size: 16.5px;
+    font-weight: bold;
+}
+
+.logo{
+    width: 9%;
+    height: 5%;
+}
+
+.headerSeparation{
+    margin-left: 10%;
+    border-right: 1px solid #A6A6A6;
+    height: 50px;
+}
+
+/*Homepage*/
+.homeDiscover{
+    background-color: #F5F3EF;
+    display: flex;
+    justify-content: center;
+    padding: 5%;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+.homeDiscover p{
+    width: 50%;
+}
+
+.homeDiscover h1{
+    width: 50%;
+    padding-bottom: 1%;
+}
+
+.homeLeftContainer{
+    padding-top: 10%;
+}
+
+.lastUpdate{
+    text-align: center;
+}
+
+.homePresentation{
+    background-color: #F5F3EF;
+    text-align: center;
+    padding-top: 2%;
+}
+
+.homePresentation p{
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+
+.homePresentation button{
+    background-color: #F5F3EF;
+    color:#00AC66;
+    border: 1px solid #00AC66;
+}
+
+.homePresentationDisplayCards{
+    display: flex;
+    justify-content: space-around;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.homeCards{
+    width: 20%;
+    padding-left: 5%;
+    padding-right: 5%;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    text-align: center;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+}
+
+.band{
+    text-align: left;
+    width: 100%;
+    padding-top: 5%;
+}
+
+.homePresentationText{
+    width: 25%;
+    margin-left: 37.5%;
+    text-align: left;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+.homePresentationText h1{
+    padding-bottom: 5%;
+}
+
+/*Register Page*/
+.registerPage{
+    display: flex;
+}
+
+.registerPage div, .registerPage img{
+    width: 50%;
+}
+
+.registerPage div{
+    padding-left: 20%;
+    padding-top: 5%;
+    background-color: #F5F3EF;
+}
+
+.requiredValue{
+    padding-top: 3%;
+    color:#A6A6A6;
+}
+
+/*Footer*/
+footer{
+    display: flex;
+    justify-content: flex-end;
+}
+
+footer p, footer img{
+    padding: 2%;
+}
