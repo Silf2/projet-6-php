@@ -13,16 +13,16 @@
 <body>
     <header>
         <img src="../images/logo.png" class="logo"/>
-        <p>Accueil</p>
-        <p>Nos livres à l'échange</p>
+        <a href="index.php?action=home">Accueil</a>
+        <a>Nos livres à l'échange</a>
         <div class="headerSeparation"></div>
-        <p><i class="fa-regular fa-comment"></i>Messagerie</p>
-        <p>Mon compte</p>
-        <p>Connexion</p>
+        <a><i class="fa-regular fa-comment"></i>Messagerie</a>
+        <a>Mon compte</a>
+        <a href="index.php?action=register">Connexion</a>
     </header>
 
     <main>
-        <?php require_once("./views/template/register.php")?>
+        <?= $content /* Ici est affiché le contenu réel de la page. */ ?>
     </main>
 
     <footer>

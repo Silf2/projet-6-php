@@ -5,6 +5,11 @@
 
  class UserController {
 
+    public function showRegistering(){
+        $view = new View("Inscription");
+        $view->render("register");
+    }
+
     public function registerUser(){
         $username = $_POST['username'];
         $password = $_POST['password'];
