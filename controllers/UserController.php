@@ -29,6 +29,9 @@
         ]);
 
         $userManager = new UserManager();
+        if ($userManager->searchUser($user)){
+            throw new Exception('L\'utilisateur ' . $username .' existe déjà.');
+        }
         $result = $userManager->createUser($user);
 
         header('Location: index.php');
