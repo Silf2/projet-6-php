@@ -7,9 +7,10 @@ class UserManager extends AbstractEntityManager
         $sql = "INSERT INTO user (username, password, email) VALUES (:username, :password, :email)";
         $result = $this->db->query($sql, [
             ':username' => $user->getUsername(), 
-            ':password' => $user->getPassword(), 
+            ':password' => password_hash($user->getPassword(), PASSWORD_DEFAULT), 
             ':email' => $user->getEmail()
         ]);
         return $result->rowCount() > 0;
     }
+
 }

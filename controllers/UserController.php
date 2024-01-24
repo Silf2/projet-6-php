@@ -32,6 +32,5 @@
         $result = $userManager->createUser($user);
 
         header('Location: index.php');
-        exit;
     }
  }
