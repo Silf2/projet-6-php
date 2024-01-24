@@ -18,13 +18,17 @@ try {
             $userController = new UserController();
             $userController->showRegistering();
             break;
+        case 'connect':
+            $userController = new UserController();
+            $userController->showConnection();
+            break;
 
         //Utilisation des fonctionnalités    
         case 'registerUser':
             $userController = new UserController();
             $userController->registerUser();
             break;    
-            
+
         default:
             // Gérez les actions non reconnues ici
             break;

@@ -10,6 +10,11 @@
         $view->render("register");
     }
 
+    public function showConnection(){
+        $view = new View("Connexion");
+        $view->render("connect");
+    }
+
     public function registerUser(){
         $username = $_POST['username'];
         $password = $_POST['password'];
