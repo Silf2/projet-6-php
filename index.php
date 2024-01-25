@@ -32,6 +32,10 @@ try {
             $userController = new UserController();
             $userController->connectUser();
             break;
+        case 'disconnectUser':
+            $userController = new UserController();
+            $userController->disconnectUser();
+            break;
         default:
             // Gérez les actions non reconnues ici
             break;

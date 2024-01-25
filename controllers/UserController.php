@@ -68,4 +68,10 @@
 
         header('Location: index.php');
     }
+
+    public function disconnectUser() : void
+    {
+        unset($_SESSION['user']);
+        header('Location: index.php');
+    }
  }

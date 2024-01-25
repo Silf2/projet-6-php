@@ -20,7 +20,7 @@
         <a>Mon compte</a>
         <?php 
             if (isset($_SESSION['user'])){
-                echo'<a href="index.php?action=logout">Déconnexion</a>';
+                echo'<a href="index.php?action=disconnectUser">Déconnexion</a>';
             }else{
                 echo'<a href="index.php?action=register">Connexion</a>';
             }
