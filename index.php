@@ -28,7 +28,10 @@ try {
             $userController = new UserController();
             $userController->registerUser();
             break;    
-
+        case 'connectUser':
+            $userController = new UserController();
+            $userController->connectUser();
+            break;
         default:
             // Gérez les actions non reconnues ici
             break;

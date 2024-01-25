@@ -18,7 +18,13 @@
         <div class="headerSeparation"></div>
         <a><i class="fa-regular fa-comment"></i>Messagerie</a>
         <a>Mon compte</a>
-        <a href="index.php?action=register">Connexion</a>
+        <?php 
+            if (isset($_SESSION['user'])){
+                echo'<a href="index.php?action=logout">Déconnexion</a>';
+            }else{
+                echo'<a href="index.php?action=register">Connexion</a>';
+            }
+        ?>    
     </header>
 
     <main>
