@@ -4,7 +4,7 @@
         <p>Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons en la magie du partage des connaissances et d'histoires à travers les livres</p>
         <button>Découvrir</button>
     </div>
-    <img src="../images/hamza-nouasria-KXrvPthkmYQ-unsplash 1.png"/>
+    <img src="../src/images/hamza-nouasria-KXrvPthkmYQ-unsplash 1.png"/>
 </div>
 
 <div class="lastUpdate">
@@ -22,7 +22,7 @@
         <p class="homeCards">Proposez un échange et discutez avec d'autres passionnés de lecture.</p>
     </div>
     <button>Voir tous les livres</button>
-   <img src="../images/clay-banks-4uH8rdyEbH4-unsplash 1.png" class="band" />
+   <img src="../src/images/clay-banks-4uH8rdyEbH4-unsplash 1.png" class="band" />
 
    <div class="homePresentationText">
         <h1>Nos valeurs</h1>

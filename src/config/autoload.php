@@ -8,18 +8,18 @@
  */
 spl_autoload_register(function($className) {
     // On va voir dans le dossier Model si la classe existe.
-    if (file_exists('models/' . $className . '.php')) {
-        require_once 'models/' . $className . '.php';
+    if (file_exists('src/models/' . $className . '.php')) {
+        require_once 'src/models/' . $className . '.php';
     }
 
     // On va voir dans le dossier Controller si la classe existe.
-    if (file_exists('controllers/' . $className . '.php')) {
-        require_once 'controllers/' . $className . '.php';
+    if (file_exists('src/controllers/' . $className . '.php')) {
+        require_once 'src/controllers/' . $className . '.php';
     }
 
     // On va voir dans le dossier View si la classe existe.
-    if (file_exists('views/' . $className . '.php')) {
-        require_once 'views/' . $className . '.php';
+    if (file_exists('src/views/' . $className . '.php')) {
+        require_once 'src/views/' . $className . '.php';
     }
     
 });

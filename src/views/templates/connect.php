@@ -2,7 +2,7 @@
     <div>
         <form action="index.php?action=connectUser" method="post">
             <h1>Connexion</h1>
-            <p class="requiredValue">Adresse email</p>
+            <p class="requiredValue">Adresse email </p>
             <input type="email" name="email" id="email" required>
             <p class="requiredValue">Mot de passe</p>
             <input type="password" name="password" id="password" required>

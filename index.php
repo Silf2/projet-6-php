@@ -1,7 +1,7 @@
 <?php 
 
-require_once("./config/config.php");
-require_once("./config/autoload.php");
+require_once("./src/config/autoload.php");
+require_once("./src/config/config.php");
 
 $action = $action = isset($_GET['action']) ? $_GET['action'] : 'home';
 

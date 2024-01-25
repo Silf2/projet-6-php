@@ -7,12 +7,12 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./src/css/style.css">
 </head>
 
 <body>
     <header>
-        <img src="../images/logo.png" class="logo"/>
+        <img src="../src/images/logo.png" class="logo"/>
         <a href="index.php?action=home">Accueil</a>
         <a>Nos livres à l'échange</a>
         <div class="headerSeparation"></div>
@@ -35,6 +35,6 @@
         <p>Politique de confidentialité</p>
         <p>Mention légales</p>
         <p>Tom Troc©</p>
-        <img src="../images/logo_footer.png" />
+        <img src="../src/images/logo_footer.png" />
     </footer>
 </body>

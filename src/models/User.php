@@ -3,14 +3,15 @@
 
 class User extends AbstractEntity
 {
-    private $username;
-    private $password;
-    private $email;
+    private ?string $username = null;
+    private ?string $password = null;
+    private ?string $email = null;
+    
 
     /**
      * Get the value of username
      */ 
-    public function getUsername()
+    public function getUsername(): ?string
     {
         return $this->username;
     }

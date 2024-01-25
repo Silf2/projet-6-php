@@ -88,6 +88,6 @@
         $user = $_SESSION['user'];
 
         $view = new View("Mon Compte");
-        $view->render("profile");
+        $view->render("profile", ["user"=> $user]);
     }
  }
