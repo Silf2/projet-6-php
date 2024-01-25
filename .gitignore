@@ -3,4 +3,4 @@ composer.lock
 Makefile
 .php-cs-fixer.cache
 vendor/
-config/config.php
+src/config/config.php

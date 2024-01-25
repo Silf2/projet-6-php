@@ -11,7 +11,7 @@
             <p class="bookPossessed">0 livre</p>
         </div>
         <div class="profileRight">
-            <form action="index.php?action=registerUser" method="post" class="formProfile">
+            <form action="index.php?action=Rine" method="post" class="formProfile">
                 <p class="formProfileTitle">Vos informations personnelles</p>
                 <p class="requiredValue">Adresse email</p>
                 <input type="email" name="email" id="email" value="<?php echo $user->getEmail(); ?>" required>
