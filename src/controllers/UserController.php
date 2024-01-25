@@ -66,7 +66,7 @@
         $_SESSION['user'] = $user;
         $_SESSION['id_user'] = $user->getId();
 
-        header('Location: index.php');
+        header('Location: ?action=profile');
     }
 
     public function disconnectUser() : void
