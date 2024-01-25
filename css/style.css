@@ -21,6 +21,19 @@ button{
     border-radius: 15px;
 }
 
+input{
+    font-size: 20px;
+    padding: 2%;
+    margin-top: 1%;
+    border: none;
+    border-radius: 5px;
+}
+
+.greyBackground{
+    background-color: #F5F3EF;
+    padding: 7%;
+}
+
 /*Header*/
 header{
     background-color: #F5F3EF;
@@ -153,6 +166,98 @@ header a:hover{
 .requiredValue{
     padding-top: 3%;
     color:#A6A6A6;
+}
+
+/*ProfilePage*/
+
+.profileTop{
+    display: flex;
+    justify-content: space-between;
+}
+
+.pageTitle{
+    padding-bottom: 5%;
+}
+
+.profileLeft{
+    display: flex;
+    flex-direction: column;
+}
+
+.profileLeft, .profileRight{
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    width: 45%;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+
+.profilePicture{
+    width: 20%;
+    padding-top: 5%;
+}
+
+.modifyPicture{
+    color: #A6A6A6;
+    text-decoration: underline;
+}
+
+.profileSeparation{
+    border-bottom: 1px solid #F5F3EF;
+    width: 60%;
+    padding-top: 10%;
+    margin-bottom: 10%;
+}
+
+.username{
+    font-size: 40px;
+}
+
+.member{
+    color: #A6A6A6;
+    padding-top: 2%;
+    padding-bottom: 2%;
+    font-size: 20px;
+}
+
+.library{
+    font-family: 'Inter';
+    font-weight: 600;
+}
+
+.bookPossessed{
+    padding-top: 2%;
+    padding-bottom: 5%;
+}
+
+.formProfile{
+    display: flex;
+    flex-direction: column;
+    padding: 20%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    text-align: left;
+    font-size: 20px;
+}
+
+.formProfileTitle{
+    font-size: 22px;
+    padding-bottom: 5%;
+}
+
+.formProfile button{
+    background-color: #F5F3EF;
+    color:#00AC66;
+    border: 1px solid #00AC66;
+    width: 40%;
+    font-size: 25px;
+    padding-top: 5%;
+    padding-bottom: 5%;
+}
+
+.formProfile input{
+    background-color: #EDF2F6;
 }
 
 /*Footer*/

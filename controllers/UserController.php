@@ -39,7 +39,7 @@
             'email'=> $email
         ]);
 
-        $result = $userManager->createUser($user);
+        $userManager->createUser($user);
 
         header('Location: index.php');
     }
@@ -75,9 +75,19 @@
         header('Location: index.php');
     }
 
-    private function checkIfUserIsConnected() : void{
+    private function checkIfUserIsConnected() : void
+    {
         if(!isset($_SESSION['user'])){
             header('Location: ?action=register');
         }
+    }
+
+    public function showProfile() : void
+    {
+        $this->checkIfUserIsConnected();
+        $user = $_SESSION['user'];
+
+        $view = new View("Mon Compte");
+        $view->render("profile");
     }
  }

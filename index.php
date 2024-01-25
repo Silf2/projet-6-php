@@ -22,7 +22,10 @@ try {
             $userController = new UserController();
             $userController->showConnection();
             break;
-
+        case 'profile':
+            $userController = new UserController();
+            $userController->showProfile();
+            break;
         //Utilisation des fonctionnalités    
         case 'registerUser':
             $userController = new UserController();

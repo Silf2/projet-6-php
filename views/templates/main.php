@@ -17,7 +17,7 @@
         <a>Nos livres à l'échange</a>
         <div class="headerSeparation"></div>
         <a><i class="fa-regular fa-comment"></i>Messagerie</a>
-        <a>Mon compte</a>
+        <a href="?action=profile">Mon compte</a>
         <?php 
             if (isset($_SESSION['user'])){
                 echo'<a href="index.php?action=disconnectUser">Déconnexion</a>';
