@@ -21,7 +21,7 @@ class User extends AbstractEntity
      *
      * @return  self
      */ 
-    public function setUsername($username)
+    public function setUsername(?string $username)
     {
         $this->username = $username;
 
@@ -31,7 +31,7 @@ class User extends AbstractEntity
     /**
      * Get the value of password
      */ 
-    public function getPassword()
+    public function getPassword(): ?string
     {
         return $this->password;
     }
@@ -41,7 +41,7 @@ class User extends AbstractEntity
      *
      * @return  self
      */ 
-    public function setPassword($password)
+    public function setPassword(?string $password)
     {
         $this->password = $password;
 
@@ -51,7 +51,7 @@ class User extends AbstractEntity
     /**
      * Get the value of email
      */ 
-    public function getEmail()
+    public function getEmail(): ?string
     {
         return $this->email;
     }
@@ -61,7 +61,7 @@ class User extends AbstractEntity
      *
      * @return  self
      */ 
-    public function setEmail($email)
+    public function setEmail(?string $email)
     {
         $this->email = $email;
 
