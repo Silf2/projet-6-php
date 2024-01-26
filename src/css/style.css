@@ -194,13 +194,28 @@ header a:hover{
 }
 
 .profilePicture{
-    width: 20%;
-    padding-top: 5%;
+    width: 160px;
+    height: 160px;
+    margin-top: 5%;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+#profilePictureButton{
+    display: none;
+}
+
+.uploadPP{
+    color: #A6A6A6;
+    font-size: 15px;
+    cursor: pointer;
 }
 
 .modifyPicture{
     color: #A6A6A6;
+    background-color: #FFFFFF;
     text-decoration: underline;
+    font-size: 15px;
 }
 
 .profileSeparation{

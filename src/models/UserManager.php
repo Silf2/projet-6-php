@@ -33,4 +33,36 @@ class UserManager extends AbstractEntityManager
         }
         return null;
     }
+
+    public function modifyPP(User $user, string $newPP): void
+    {
+        $sql = "UPDATE user SET profilePicture = :newPP WHERE id = :userId";
+        $result = $this->db->query($sql, [
+            ":newPP"=> $newPP, 
+            ":userId"=> $user->getId()
+        ]);
+    } 
+
+    public function modifyUser( User $newUser, int $userId): bool
+    {
+        $sql = "UPDATE user SET username = :newUsername, password = :newPassword, email = :newEmail WHERE id = :userId";
+        $result = $this->db->query($sql, [
+            ":newUsername" => $newUser->getUsername(),
+            ":newPassword" => password_hash($newUser->getPassword(), PASSWORD_DEFAULT),
+            ":newEmail" => $newUser->getEmail(),
+            ":userId" => $userId
+        ]);
+        return $result->rowCount() > 0;
+    }   
+
+    public function checkIfUserEmailExist(string $email, int $userId): bool
+    {
+        $sql = "SELECT * FROM user WHERE email = :email AND id != :userId";
+        $result = $this->db->query($sql, [
+            ":email"=> $email,
+            ":userId"=> $userId
+        ]);
+        return $result->rowCount() > 0;
+    }
+
 }

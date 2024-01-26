@@ -39,6 +39,14 @@ try {
             $userController = new UserController();
             $userController->disconnectUser();
             break;
+        case 'modifyPP':
+            $userController = new UserController();
+            $userController->modifyPP();
+            break;
+        case 'modifyUser':
+            $userController = new UserController();
+            $userController->modifyUser();
+            break;
         default:
             // Gérez les actions non reconnues ici
             break;

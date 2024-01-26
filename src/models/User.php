@@ -6,6 +6,7 @@ class User extends AbstractEntity
     private ?string $username = null;
     private ?string $password = null;
     private ?string $email = null;
+    private ?string $profilePicture = null;
     
 
     /**
@@ -64,6 +65,26 @@ class User extends AbstractEntity
     public function setEmail(?string $email)
     {
         $this->email = $email;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of profilePicture
+     */ 
+    public function getProfilePicture(): ?string
+    {
+        return $this->profilePicture;
+    }
+
+    /**
+     * Set the value of profilePicture
+     *
+     * @return  self
+     */ 
+    public function setProfilePicture(?string $profilePicture)
+    {
+        $this->profilePicture = $profilePicture;
 
         return $this;
     }

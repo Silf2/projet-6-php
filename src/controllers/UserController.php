@@ -14,6 +14,14 @@
         $view = new View("Connexion");
         $view->render("connect");
     }
+    public function showProfile() : void
+    {
+        $this->checkIfUserIsConnected();
+        $user = $_SESSION['user'];
+
+        $view = new View("Mon Compte");
+        $view->render("profile", ["user"=> $user]);
+    }
 
     public function registerUser() : void{
         $username = $_POST['username'];
@@ -82,12 +90,63 @@
         }
     }
 
-    public function showProfile() : void
+    public function modifyPP() : void
     {
-        $this->checkIfUserIsConnected();
         $user = $_SESSION['user'];
 
-        $view = new View("Mon Compte");
-        $view->render("profile", ["user"=> $user]);
+        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['profilePicture'])) {
+            $uploadDirectory = 'src/images/profilePicture/';
+            
+            $uploadFileName = $uploadDirectory . basename($_FILES['profilePicture']['name']);
+        
+            $allowedExtensions = array('jpg', 'jpeg', 'png');
+            $fileExtension = strtolower(pathinfo($uploadFileName, PATHINFO_EXTENSION));
+        
+            if (!in_array($fileExtension, $allowedExtensions)) {
+                echo 'Seuls les fichiers JPG, JPEG et PNG sont autorisés.';
+            } else {
+                if (move_uploaded_file($_FILES['profilePicture']['tmp_name'], $uploadFileName)) {
+                    $userManager = new UserManager();
+                    $userManager->modifyPP($user, $uploadFileName);
+                    $_SESSION['user']->setProfilePicture($uploadFileName);
+                    header('Location: ?action=profile');
+                } else {
+                    echo 'Erreur lors de l\'upload du fichier.';
+                }
+            }
+        }
     }
- }
+
+    public function modifyUser() : void
+    {
+        $this->checkIfUserIsConnected();
+        $idUser = $_SESSION['id_user'];
+
+        $username = $_POST['username'];
+        $password = $_POST['password'];
+        $email = $_POST['email'];
+
+        $username = htmlspecialchars($username);
+        $password = htmlspecialchars($password);
+        $email = htmlspecialchars($email);
+
+        if (empty($username) || empty($password) || empty($email) || !filter_var($email, FILTER_VALIDATE_EMAIL)){
+            throw new Exception('Tous les champs sont obligatoires. Vérifiez que votre adresse mail est valide.');
+        }
+
+        $userManager = new UserManager();
+        $newUser = new User([
+            'username'=> $username,
+            'password'=> $password,
+            'email'=> $email
+        ]);
+        if($userManager->checkIfUserEmailExist($newUser->getEmail(), $idUser)){
+            throw new Exception('Un utilisateur avec cette adresse mail existe déjà.');
+        }
+        $userManager->modifyUser($newUser, $idUser);
+        $_SESSION['user']->setUsername($username);
+        $_SESSION['user']->setPassword($password);
+        $_SESSION['user']->setEmail($email);
+        header('Location: ?action=profile');
+    }
+}

@@ -12,5 +12,5 @@
         <p>Pas encore inscrit ? <a href="?action=register">Inscrivez-vous</a></p>
     </div>
 
-    <img src="../images/marialaura-gionfriddo-50G3FvyQxX0-unsplash 1.png"/>
+    <img src="../src/images/marialaura-gionfriddo-50G3FvyQxX0-unsplash 1.png"/>
 </div>
