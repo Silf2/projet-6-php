@@ -23,6 +23,25 @@
         $view->render("profile", ["user"=> $user]);
     }
 
+    public function showOtherUserProfile() : void
+    {
+        $username = $_GET["username"];
+        
+        if(isset($_SESSION['user']) && ($_SESSION['user']->getUsername() == $username))
+        {
+            $this->showProfile();
+            die;
+        }
+
+        $userManager = new UserManager();
+        $user = $userManager->getUserByUsername($username);
+        if (!$user){
+            throw new Exception('Aucun utilisateur ne s\'appel comme ça.');
+        }
+        $view = new View("Profile de $username");
+        $view->render("otherProfile", ["user"=> $user]);
+    }
+
     public function registerUser() : void{
         $username = $_POST['username'];
         $password = $_POST['password'];

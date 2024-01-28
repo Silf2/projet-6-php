@@ -26,6 +26,10 @@ try {
             $userController = new UserController();
             $userController->showProfile();
             break;
+        case 'otherProfile':
+            $userController = new UserController();
+            $userController->showOtherUserProfile();
+            break;
         //Utilisation des fonctionnalités    
         case 'registerUser':
             $userController = new UserController();

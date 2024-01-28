@@ -168,6 +168,10 @@ header a:hover{
     color:#A6A6A6;
 }
 
+.registerPage a{
+    color: black;
+}
+
 /*ProfilePage*/
 
 .profileTop{
@@ -273,6 +277,31 @@ header a:hover{
 
 .formProfile input{
     background-color: #EDF2F6;
+}
+
+/*Other User Profile page*/
+.otherProfile{
+    background-color: #F5F3EF;
+    padding: 7%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.otherProfile .profileLeft{
+    width: 25%;
+}
+
+.otherProfile .profileRight{
+    width: 70%;
+}
+
+.otherProfile button{
+    background-color: #F5F3EF;
+    color:#00AC66;
+    border: 1px solid #00AC66;
+    margin-top: 10%;
+    margin-bottom: 10%;
+    padding: 5%;
 }
 
 /*Footer*/

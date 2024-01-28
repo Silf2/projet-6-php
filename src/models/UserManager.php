@@ -34,6 +34,17 @@ class UserManager extends AbstractEntityManager
         return null;
     }
 
+    public function getUserByUsername(string $username): ?User
+    {
+        $sql = "SELECT * FROM user WHERE username = :username";
+        $result = $this->db->query($sql, [':username' => $username]);
+        $user = $result->fetch(PDO::FETCH_ASSOC);
+        if ($user) {
+            return new User($user);
+        }
+        return null;
+    }
+
     public function modifyPP(User $user, string $newPP): void
     {
         $sql = "UPDATE user SET profilePicture = :newPP WHERE id = :userId";
