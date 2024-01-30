@@ -2,29 +2,29 @@
 
 class Book extends AbstractEntity
 {
-    private ?int $id_user = null;
+    private ?int $idUser = -1;
     private ?string $picture = null;
     private ?string $title = null;
     private ?string $autor = null;
     private ?string $comment = null;
-    private ?bool $disponibility = false;
+    private ?string $disponibility = null;
 
         /**
-     * Get the value of id_user
+     * Get the value of IdUser
      */ 
-    public function getId_user(): ?int
+    public function getIdUser(): ?int
     {
-        return $this->id_user;
+        return $this->idUser;
     }
 
     /**
-     * Set the value of id_user
+     * Set the value of IdUser
      *
      * @return  self
      */ 
-    public function setId_user(?int $id_user)
+    public function setIdUser(?int $idUser)
     {
-        $this->id_user = $id_user;
+        $this->idUser = $idUser;
 
         return $this;
     }
@@ -112,7 +112,7 @@ class Book extends AbstractEntity
     /**
      * Get the value of disponibility
      */ 
-    public function getDisponibility(): ?bool
+    public function getDisponibility(): ?string
     {
         return $this->disponibility;
     }
@@ -122,7 +122,7 @@ class Book extends AbstractEntity
      *
      * @return  self
      */ 
-    public function setDisponibility(?bool $disponibility)
+    public function setDisponibility(?string $disponibility)
     {
         $this->disponibility = $disponibility;
 

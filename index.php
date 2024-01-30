@@ -30,6 +30,10 @@ try {
             $userController = new UserController();
             $userController->showOtherUserProfile();
             break;
+        case 'formAddBook':
+            $bookController = new BookController();
+            $bookController->showFormAddBook();
+            break;
         //Utilisation des fonctionnalités    
         case 'registerUser':
             $userController = new UserController();
@@ -50,6 +54,14 @@ try {
         case 'modifyUser':
             $userController = new UserController();
             $userController->modifyUser();
+            break;
+        case 'addBook':
+            $bookController = new BookController();
+            $bookController->addBook();
+            break;
+        case 'deleteBook':
+            $bookController = new BookController();
+            $bookController->deleteBook();
             break;
         default:
             // Gérez les actions non reconnues ici

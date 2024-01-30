@@ -76,4 +76,11 @@ class UserManager extends AbstractEntityManager
         return $result->rowCount() > 0;
     }
 
+    public function getQuantityOfBookPossessed(User $user): int
+    {
+        $sql = "SELECT COUNT(book.id) AS total_books FROM user LEFT JOIN book ON user.id = book.id_user WHERE user.id = :user_id";
+        $result = $this->db->query($sql, ["user_id"=> $user->getId()]);
+        $bookPossessed = $result->fetchColumn();
+        return $bookPossessed;
+    }
 }

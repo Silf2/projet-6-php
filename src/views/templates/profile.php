@@ -18,7 +18,7 @@
             <h1 class="username"><?php echo $user->getUsername();?></h1>
             <p class="member">Membre depuis 1 an</p>
             <p class="library">Bibliothèque</p>
-            <p class="bookPossessed">0 livre</p>
+            <p class="bookPossessed"><?php echo $quantityOfBookPossessed; ?> livre</p>
         </div>
         <div class="profileRight">
             <form action="index.php?action=modifyUser" method="post" class="formProfile">
@@ -34,4 +34,37 @@
             </form>
         </div>
     </div>
+    <table class="allBookPossessed">
+        <thead>
+            <tr>
+                <th class="pictureArray">Photo</th>
+                <th class="titleArray">Titre</th>
+                <th class="autorArray">Auteur</th>
+                <th class="commentArray">Description</th>
+                <th class="disponibilityArray">Disponibilite</th>
+                <th class="actionArray">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($books as $book) { ?>
+                <tr>
+                    <td class="pictureInArray"><img src="<?= $book->getPicture(); ?>" class="bookPictureSmall"/></td>
+                    <td class="titleInArray"><?= $book->getTitle(); ?></td>
+                    <td><?= $book->getAutor(); ?></td>
+                    <?php 
+                        $comment = (strlen($book->getComment()) > 100) ? substr($book->getComment(), 0 , 100) . '...' : $book->getComment();
+                        echo'<td class="commentInArray">' . $comment .'</td>';
+                    ?>
+                    <?php if($book->getDisponibility() === "disponible"){
+                        echo '<td><p class="disponible">' . $book->getDisponibility(). '</p></td>';
+                    }else{
+                        echo '<td><p class="nonDispo">' . $book->getDisponibility(). '</p></td>';
+                    }
+                    ?>
+                    <td class="linkArray"><a>Editer</a><a href="?action=deleteBook&id=<?= $book->getId();?>" class="deleteFromArray">Supprimer</a></td>
+                </tr>
+            <?php } ?>
+        </tbody>
+    </table>
+    <a href="?action=formAddBook">Ajouter un livre</a>
 </div>

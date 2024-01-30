@@ -3,7 +3,7 @@
  * Contrôleur de la partie User.
  */
 
- class UserController {
+ class UserController extends AbstractController{
 
     public function showRegistering() : void{
         $view = new View("Inscription");
@@ -19,8 +19,13 @@
         $this->checkIfUserIsConnected();
         $user = $_SESSION['user'];
 
+        $userManager = new UserManager();
+        $quantityOfBookPossessed = $userManager->getQuantityOfBookPossessed($user);
+        $bookManager = new BookManager();
+        $books = $bookManager->getAllBooksByUser($user);
+
         $view = new View("Mon Compte");
-        $view->render("profile", ["user"=> $user]);
+        $view->render("profile", ["user"=> $user, "quantityOfBookPossessed" => $quantityOfBookPossessed, "books"=> $books]);
     }
 
     public function showOtherUserProfile() : void
@@ -38,8 +43,10 @@
         if (!$user){
             throw new Exception('Aucun utilisateur ne s\'appel comme ça.');
         }
+        $quantityOfBookPossessed = $userManager->getQuantityOfBookPossessed($user);
+
         $view = new View("Profile de $username");
-        $view->render("otherProfile", ["user"=> $user]);
+        $view->render("otherProfile", ["user"=> $user, "quantityOfBookPossessed" => $quantityOfBookPossessed]);
     }
 
     public function registerUser() : void{
@@ -102,18 +109,11 @@
         header('Location: index.php');
     }
 
-    private function checkIfUserIsConnected() : void
-    {
-        if(!isset($_SESSION['user'])){
-            header('Location: ?action=register');
-        }
-    }
-
     public function modifyPP() : void
     {
         $user = $_SESSION['user'];
 
-        if ($_SERVER['REQUEST_METHOD'] == 'POST' && isset($_FILES['profilePicture'])) {
+        if (isset($_FILES['profilePicture'])) {
             $uploadDirectory = 'src/images/profilePicture/';
             
             $uploadFileName = $uploadDirectory . basename($_FILES['profilePicture']['name']);

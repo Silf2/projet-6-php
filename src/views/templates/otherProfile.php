@@ -11,7 +11,7 @@
         <h1 class="username"><?php echo $user->getUsername();?></h1>
         <p class="member">Membre depuis 1 an</p>
         <p class="library">Bibliothèque</p>
-        <p class="bookPossessed">0 livre</p>
+        <p class="bookPossessed"><?php echo $quantityOfBookPossessed; ?> livre</p>
         <button>Écrire un message</button>
     </div>
     <div class="profileRight">
