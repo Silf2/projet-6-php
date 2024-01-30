@@ -34,6 +34,10 @@ try {
             $bookController = new BookController();
             $bookController->showFormAddBook();
             break;
+        case 'formEditBook':
+            $bookController = new BookController();
+            $bookController->showFormEditBook();
+            break;
         //Utilisation des fonctionnalités    
         case 'registerUser':
             $userController = new UserController();
@@ -58,6 +62,10 @@ try {
         case 'addBook':
             $bookController = new BookController();
             $bookController->addBook();
+            break;
+        case 'editBook':
+            $bookController = new BookController();
+            $bookController->editBook();
             break;
         case 'deleteBook':
             $bookController = new BookController();

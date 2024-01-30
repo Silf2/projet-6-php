@@ -13,7 +13,27 @@ Class BookController extends AbstractController{
         $view->render("addBook");
     }
 
-    public function addBook(): void {
+    public function showFormEditBook(): void{
+        $this->checkIfUserIsConnected();
+        $idBook = $_GET['id'];
+        $idUser = $_SESSION['id_user'];
+
+        $bookManager = new BookManager();
+        $book = $bookManager->getBookById($idBook);
+
+        if(!$book){
+            throw new Exception('Une erreure est survenue');
+        }
+
+        if($book->getIdUser() == $idUser){
+            $view = new View("Modifier un livre");
+            $view->render("editBook", ["book"=> $book]);
+        } else{
+            throw new Exception("Vous ne possédez pas le livre que vous essayez de modifier.");
+        }
+    }
+
+    public function addOrEditBook($addOrEdit): void {
         $idUser = $_SESSION['id_user'];
         $title = htmlspecialchars($_POST['title']);
         $autor = htmlspecialchars($_POST['autor']);
@@ -50,17 +70,30 @@ Class BookController extends AbstractController{
         ]);
 
         $bookManager = new BookManager();
-        $bookManager->addBook($book);
+        if ($addOrEdit === 'add') {
+            $bookManager->addBook($book);
+        } elseif ($addOrEdit === 'edit') {
+            $idBook = $_GET['id'];
+            $bookManager->editBook($book, $idBook);
+        }
 
         header('Location: ?action=profile');
     }   
     
-    public function deleteBook(){
+    public function addBook(){
+        $this->addOrEditBook('add');
+    }
+
+    public function editBook(){
+        $this->addOrEditBook('edit');
+    }
+
+    public function deleteBook(): void{
         $this->checkIfUserIsConnected();
         $idBook = $_GET['id'];
         $idUser = $_SESSION['id_user'];
 
-        $bookManager = new Bookmanager();
+        $bookManager = new BookManager();
         $book = $bookManager->getBookById($idBook);
 
         if(!$book){

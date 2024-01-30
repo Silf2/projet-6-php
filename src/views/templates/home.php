@@ -9,6 +9,14 @@
 
 <div class="lastUpdate">
     <h1>Les derniers livres ajoutés</h1>
+    <div>
+        <div class="cardHome">
+            <img src="../src/images/bookCover/frosty-ilze-tfYL1j1jKNo-unsplash 1.png" class="bookCoverCard" />
+            <p>The Kinfolk Tables</p>
+            <p>Alabaster</p>
+            <p>Vendu par : Camille</p>
+        </div>
+    </div>
     <button>Voir tous les livres</button>
 </div>
 

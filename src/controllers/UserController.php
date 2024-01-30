@@ -44,9 +44,11 @@
             throw new Exception('Aucun utilisateur ne s\'appel comme ça.');
         }
         $quantityOfBookPossessed = $userManager->getQuantityOfBookPossessed($user);
+        $bookManager = new BookManager();
+        $books = $bookManager->getAllBooksByUser($user);
 
         $view = new View("Profile de $username");
-        $view->render("otherProfile", ["user"=> $user, "quantityOfBookPossessed" => $quantityOfBookPossessed]);
+        $view->render("otherProfile", ["user"=> $user, "quantityOfBookPossessed" => $quantityOfBookPossessed,  "books"=> $books]);
     }
 
     public function registerUser() : void{

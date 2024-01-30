@@ -18,7 +18,7 @@
             <h1 class="username"><?php echo $user->getUsername();?></h1>
             <p class="member">Membre depuis 1 an</p>
             <p class="library">Bibliothèque</p>
-            <p class="bookPossessed"><?php echo $quantityOfBookPossessed; ?> livre</p>
+            <p class="bookPossessed"><?php echo $quantityOfBookPossessed; ?> livre(s)</p>
         </div>
         <div class="profileRight">
             <form action="index.php?action=modifyUser" method="post" class="formProfile">
@@ -61,10 +61,12 @@
                         echo '<td><p class="nonDispo">' . $book->getDisponibility(). '</p></td>';
                     }
                     ?>
-                    <td class="linkArray"><a>Editer</a><a href="?action=deleteBook&id=<?= $book->getId();?>" class="deleteFromArray">Supprimer</a></td>
+                    <td class="linkArray"><a href="?action=formEditBook&id=<?= $book->getId();?>">Editer</a><a href="?action=deleteBook&id=<?= $book->getId();?>" class="deleteFromArray">Supprimer</a></td>
                 </tr>
             <?php } ?>
         </tbody>
     </table>
-    <a href="?action=formAddBook">Ajouter un livre</a>
+    <nav>
+        <a class="addBookButton" href="?action=formAddBook">Ajouter un livre</a>
+    </nav>
 </div>

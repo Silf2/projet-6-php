@@ -15,6 +15,31 @@ class BookManager extends AbstractEntityManager{
         return $result->rowCount() > 0;
     }
 
+    public function editBook(Book $book, int $id): bool
+    {
+        if(!$book->getPicture()){
+            $sql = "UPDATE book SET title = :title, autor = :autor, comment = :comment, disponibility = :disponibility WHERE id = :id";
+            $result = $this->db->query($sql, [
+                ':title'=> $book->getTitle(),
+                ':autor'=> $book->getAutor(),
+                ':comment'=> $book->getComment(),
+                ':disponibility'=> $book->getDisponibility(),
+                'id'=> $id
+            ]);
+        } else {
+            $sql = "UPDATE book SET picture = :picture, title = :title, autor = :autor, comment = :comment, disponibility = :disponibility WHERE id = :id";
+            $result = $this->db->query($sql, [
+                ':picture'=> $book->getPicture(),
+                ':title'=> $book->getTitle(),
+                ':autor'=> $book->getAutor(),
+                ':comment'=> $book->getComment(),
+                ':disponibility'=> $book->getDisponibility(),
+                'id'=> $id
+            ]);
+        }
+        return $result->rowCount() > 0;
+    }
+
     public function getAllBooksByUser(User $user): array
     {
         $sql = "SELECT * FROM book WHERE id_user = :id_user";

@@ -286,6 +286,7 @@ header a:hover{
     border-collapse: collapse;
     border-radius: 15px;
     text-align: center;
+    margin-bottom: 5%;
 }
 
 .allBookPossessed th{
@@ -366,13 +367,29 @@ header a:hover{
 }
 
 .linkArray a{
+    color: black;
     border-bottom: 1px solid black;
     cursor: pointer;
     text-decoration: none;
 }
 .deleteFromArray{
-    color: #CB2D2D;
+    color: #CB2D2D !important;
     border-bottom: 1px solid #CB2D2D !important;
+}
+
+.addBookButton{
+    background-color: #00AC66;
+    color: #FFFFFF;
+    text-decoration: none;  
+    padding: 1%;  
+    border-radius: 15px;
+    font-size: 25px;
+    font-weight: bold;
+}
+
+nav{
+    display: flex;
+    justify-content: center;
 }
 
 /*Other User Profile page*/
@@ -398,6 +415,10 @@ header a:hover{
     margin-top: 10%;
     margin-bottom: 10%;
     padding: 5%;
+}
+
+.otherProfile .disponible, .otherProfile .nonDispo{
+    margin-right: 10%;
 }
 
 /*Add Book*/
