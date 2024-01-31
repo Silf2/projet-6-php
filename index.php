@@ -17,6 +17,10 @@ try {
             $bookController = new BookController();
             $bookController->showLibrary();
             break;
+        case 'detail':
+            $bookController = new BookController();
+            $bookController->showDetail();
+            break;
         case 'register':
             $userController = new UserController();
             $userController->showRegistering();

@@ -27,6 +27,16 @@ Class BookController extends AbstractController{
         $view->render("library", ["books"=> $books]);
     }
 
+    public function showDetail(): void{
+        $id = $_GET['id'];
+
+        $bookManager = new BookManager();
+        $book = $bookManager->getBookByIdForDetail($id);
+
+        $view = new View("Detail");
+        $view->render("detail", ["book"=> $book]);
+    }
+
     public function showFormAddBook(): void {
         $this->checkIfUserIsConnected();
 

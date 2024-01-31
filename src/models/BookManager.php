@@ -97,4 +97,15 @@ class BookManager extends AbstractEntityManager{
         }
         return $books;
     }
+
+    public function getBookByIdForDetail(int $id) : ?Book
+    {
+        $sql = "SELECT *, u.username, u.profilePicture FROM book b JOIN user u ON b.id_user = u.id WHERE b.id = :id";
+        $result = $this->db->query($sql, [':id'=> $id]);
+        $book = $result->fetch();
+        if($book){
+            return new Book($book);
+        }
+        return null;
+    }
 }

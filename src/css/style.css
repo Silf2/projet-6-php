@@ -112,6 +112,8 @@ header a:hover{
 }
 
 .cardBook {
+    text-decoration: none;
+    color: black;
     display: flex;
     background-color: #FFFFFF;
     position: relative;
@@ -259,6 +261,83 @@ header a:hover{
     justify-content: space-between;
 }
 
+/*Detail Page*/
+
+.headerDetailPage{
+    background-color: #F5F3EF;
+    text-decoration: none;
+    color: #A6A6A6;
+    padding-left: 5%;
+    padding-top: 1%;
+    padding-bottom: 1%;
+}
+.headerDetailPage a{
+    text-decoration: none;
+    color: #A6A6A6;
+}
+.detailPage{
+    display: flex;
+}
+
+.detailPage div, .detailPage img{
+    width: 50%;
+}
+
+.detailPageInfo{
+    background-color: #FAF9F7;
+    padding: 3%;
+    padding-right: 6%;
+}
+
+.autorDetail{
+    color: #A6A6A6;
+    padding-top: 2%;
+    font-size: 20px;
+    font-weight: 300;
+}
+
+.separationDetail{
+    border-bottom: 1px solid #A6A6A6;
+    width: 10% !important;
+    padding-top: 5%;
+}
+
+.categorieDetail{
+    padding-top: 5%;
+    padding-bottom: 2%;
+    font-weight: 600;
+    font-size: 15px;
+}
+
+.commentDetail{
+    font-size: 20px;
+}
+
+.ownerDetail{
+    display: flex;
+    background-color: #FFFFFF;
+    width: 35% !important;
+    padding: 1%;
+    border-radius: 50px;
+    align-items: center;
+    margin-bottom: 5%;
+}
+
+.profilePictureDetail{
+    width: 70px !important;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.ownerUsername{
+    font-size: 20px;
+    padding-left: 5%;
+}
+
+.detailButton{
+    width: 100%;
+}
 
 /*Register Page*/
 .registerPage{

@@ -8,7 +8,8 @@ class Book extends AbstractEntity
     private ?string $autor = null;
     private ?string $comment = null;
     private ?string $disponibility = null;
-    private ?string $username = null;
+    private ?string $username = null; //Pour récupérer le Username de l'auteur de l'article
+    private ?string $profilePicture = null; //Pour récupérer la PP de l'auteur de l'article
 
         /**
      * Get the value of IdUser
@@ -146,6 +147,26 @@ class Book extends AbstractEntity
     public function setUsername(?string $username)
     {
         $this->username = $username;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of profilePicture
+     */ 
+    public function getProfilePicture()
+    {
+        return $this->profilePicture;
+    }
+
+    /**
+     * Set the value of profilePicture
+     *
+     * @return  self
+     */ 
+    public function setProfilePicture($profilePicture)
+    {
+        $this->profilePicture = $profilePicture;
 
         return $this;
     }

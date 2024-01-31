@@ -11,7 +11,7 @@
     <div class="cardBookContainerCenter">
         <div class="cardBookContainer">
             <?php foreach($books as $book) {?>
-                <div class="cardBook">
+                <a href="?action=detail&id=<?= $book->getId();?>" class="cardBook">
                     <img src="<?= $book->getPicture(); ?>" class="bookCoverCard" />
                     <?php if($book->getDisponibility() === "non dispo."){
                         echo '<p class="nonDispoCard">' . $book->getDisponibility() . '</p>';
@@ -20,7 +20,7 @@
                     <p class="titleCard"><?= $book->getTitle(); ?></p>
                     <p class="autorCard"><?= $book->getAutor(); ?></p>
                     <p class="vendorCard">Vendu par : <?= $book->getUsername(); ?></p>
-                </div>
+                </a>
             <?php } ?>
         </div>
     </div>
