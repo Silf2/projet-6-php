@@ -9,13 +9,19 @@
 
 <div class="lastUpdate">
     <h1>Les derniers livres ajoutés</h1>
-    <div>
-        <div class="cardHome">
-            <img src="../src/images/bookCover/frosty-ilze-tfYL1j1jKNo-unsplash 1.png" class="bookCoverCard" />
-            <p>The Kinfolk Tables</p>
-            <p>Alabaster</p>
-            <p>Vendu par : Camille</p>
-        </div>
+    <div class="cardBookContainer">
+        <?php for ($i = 0; $i < min(4, count($books)); $i++) { ?>
+            <div class="cardBook">
+                <img src="<?= $books[$i]->getPicture(); ?>" class="bookCoverCard" />
+                <?php if($books[$i]->getDisponibility() === "non dispo."){
+                    echo '<p class="nonDispoCard">' . $books[$i]->getDisponibility() . '</p>';
+                } 
+                ?>
+                <p class="titleCard"><?= $books[$i]->getTitle(); ?></p>
+                <p class="autorCard"><?= $books[$i]->getAutor(); ?></p>
+                <p class="vendorCard">Vendu par : <?= $books[$i]->getUsername(); ?></p>
+            </div>
+        <?php } ?>
     </div>
     <button>Voir tous les livres</button>
 </div>

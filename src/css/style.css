@@ -95,6 +95,70 @@ header a:hover{
 
 .lastUpdate{
     text-align: center;
+    background-color: #FAF9F7;
+}
+
+.lastUpdate h1{
+    padding-top: 2%;
+    padding-bottom: 2%;
+}
+
+.lastUpdate button{
+    margin-bottom: 2%;
+}
+.cardBookContainer{
+    display: flex;
+    justify-content: center;
+}
+
+.cardBook {
+    display: flex;
+    background-color: #FFFFFF;
+    position: relative;
+    flex-direction: column;
+    max-width: 300px;
+    align-items: flex-start;
+    margin: 20px;
+    border-radius: 0 0 8px 8px;
+}
+
+.cardBook p{
+    margin-left: 5%;
+}
+
+.nonDispoCard{
+    position: absolute;
+    top: 5%;
+    right: 2%;
+    font-size: 14px;
+    color: #FFFFFF;
+    background-color: #CB2D2D;
+    border-radius: 50px;
+    padding: 0.5%;
+}
+
+.titleCard{
+    padding-top: 5%;
+    padding-bottom: 2%;
+    text-align: left;
+}
+
+.autorCard{
+    color: #A6A6A6;
+    padding-bottom: 7%;
+}
+
+.vendorCard{
+    color: #A6A6A6;
+    padding-bottom: 10%;
+    font-size: 13px;
+    font-style: italic;
+}
+  
+.bookCoverCard {
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
 }
 
 .homePresentation{
@@ -147,6 +211,54 @@ header a:hover{
 .homePresentationText h1{
     padding-bottom: 5%;
 }
+
+/*Library Page*/
+.libraryHeader{
+    padding-bottom: 5%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.search-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-button {
+    background: white;
+    color: grey;
+    font-size: 24.5px;
+    border: 1px solid #ccc;
+    border-right: none;
+    border-radius: 4px 0 0 4px;
+    cursor: pointer;
+    margin-bottom: 4px;
+}
+
+.search-input {
+    font-size: 24.5px;
+    border: 1px solid #ccc;
+    border-left: none;
+    border-radius: 0 4px 4px 0;
+}
+
+.search-input::placeholder{
+    color: #A6A6A6;
+    font-weight: 200;
+}
+
+.cardBookContainerCenter{
+    display: flex;
+    justify-content: center;
+}
+
+.greyBackground .cardBookContainer{
+    flex-wrap: wrap;
+    width: 90%;
+    justify-content: space-between;
+}
+
 
 /*Register Page*/
 .registerPage{

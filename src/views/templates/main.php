@@ -8,13 +8,14 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="./src/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer"/>
 </head>
 
 <body>
     <header>
         <img src="../src/images/logo.png" class="logo"/>
         <a href="index.php?action=home">Accueil</a>
-        <a>Nos livres à l'échange</a>
+        <a href="?action=library">Nos livres à l'échange</a>
         <div class="headerSeparation"></div>
         <a><i class="fa-regular fa-comment"></i>Messagerie</a>
         <a href="?action=profile">Mon compte</a>

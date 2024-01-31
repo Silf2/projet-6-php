@@ -8,6 +8,7 @@ class Book extends AbstractEntity
     private ?string $autor = null;
     private ?string $comment = null;
     private ?string $disponibility = null;
+    private ?string $username = null;
 
         /**
      * Get the value of IdUser
@@ -125,6 +126,26 @@ class Book extends AbstractEntity
     public function setDisponibility(?string $disponibility)
     {
         $this->disponibility = $disponibility;
+
+        return $this;
+    }
+
+    /**
+     * Get the value of username
+     */ 
+    public function getUsername(): ?string
+    {
+        return $this->username;
+    }
+
+    /**
+     * Set the value of username
+     *
+     * @return  self
+     */ 
+    public function setUsername(?string $username)
+    {
+        $this->username = $username;
 
         return $this;
     }

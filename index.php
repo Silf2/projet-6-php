@@ -13,7 +13,10 @@ try {
             $bookController = new BookController();
             $bookController->showHome();
             break;
-
+        case 'library':
+            $bookController = new BookController();
+            $bookController->showLibrary();
+            break;
         case 'register':
             $userController = new UserController();
             $userController->showRegistering();
@@ -39,6 +42,10 @@ try {
             $bookController->showFormEditBook();
             break;
         //Utilisation des fonctionnalités    
+        case 'filter': 
+            $bookController = new BookController();
+            $bookController->showLibraryWithFilter();
+            break;
         case 'registerUser':
             $userController = new UserController();
             $userController->registerUser();

@@ -69,4 +69,32 @@ class BookManager extends AbstractEntityManager{
         $result = $this->db->query($sql, [':id'=> $book->getId()]);
         return $result->rowCount() > 0;
     }
+
+    public function getAllBooks(): array
+    {
+        $sql = "SELECT b.*, u.username FROM book b JOIN user u ON b.id_user = u.id";
+        $result = $this->db->query($sql);
+        $books = [];
+
+        while ($book = $result->fetch()){
+            $newBook = new Book($book);
+            $newBook->setUsername($book['username']);
+            $books[] = $newBook;
+        }
+        return $books;
+    }
+
+    public function getAllBooksByFilter(string $filter): array
+    {
+        $sql = "SELECT b.*, u.username FROM book b JOIN user u ON b.id_user = u.id WHERE b.title LIKE :filter";
+        $result = $this->db->query($sql, [':filter'=> '%' . $filter . '%']);
+        $books = [];
+
+        while ($book = $result->fetch()){
+            $newBook = new Book($book);
+            $newBook->setUsername($book['username']);
+            $books[] = $newBook;
+        }
+        return $books;
+    }
 }

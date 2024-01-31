@@ -2,8 +2,29 @@
 
 Class BookController extends AbstractController{
     public function showHome() : void {
+        $bookManager = new BookManager();
+        $books = $bookManager->getAllBooks();
+
         $view = new View("Accueil");
-        $view->render("home");
+        $view->render("home", ["books"=> $books]);
+    }
+
+    public function showLibrary() : void {
+        $bookManager = new BookManager();
+        $books = $bookManager->getAllBooks();
+
+        $view = new View("Bibliothèque");
+        $view->render("library", ["books"=> $books]);
+    }
+
+    public function showLibraryWithFilter(): void{
+        $filter = htmlspecialchars($_POST['filter']);
+        
+        $bookManager = new BookManager();
+        $books = $bookManager->getAllBooksByFilter($filter);
+
+        $view = new View("Bibliothèque");
+        $view->render("library", ["books"=> $books]);
     }
 
     public function showFormAddBook(): void {
