@@ -2,7 +2,7 @@
     <div class="homeLeftContainer">
         <h1>Rejoignez nos lecteurs passionnés</h1>
         <p>Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons en la magie du partage des connaissances et d'histoires à travers les livres</p>
-        <button>Découvrir</button>
+        <a href="?action=library"><button>Découvrir</button></a>
     </div>
     <img src="../src/images/hamza-nouasria-KXrvPthkmYQ-unsplash 1.png"/>
 </div>
@@ -23,7 +23,7 @@
             </div>
         <?php } ?>
     </div>
-    <button>Voir tous les livres</button>
+    <a href="?action=library"><button>Voir tous les livres</button></a>
 </div>
 
 <div class="homePresentation">
@@ -35,7 +35,7 @@
         <p class="homeCards">Parcourez les livres disponibles chez d'autres membres.</p>
         <p class="homeCards">Proposez un échange et discutez avec d'autres passionnés de lecture.</p>
     </div>
-    <button>Voir tous les livres</button>
+    <a href="?action=library"><button>Voir tous les livres</button></a>
    <img src="../src/images/clay-banks-4uH8rdyEbH4-unsplash 1.png" class="band" />
 
    <div class="homePresentationText">
