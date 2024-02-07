@@ -31,7 +31,9 @@ input, textarea, select{
 
 .greyBackground{
     background-color: #F5F3EF;
-    padding: 7%;
+    padding: 5%;
+    padding-left: 7%;
+    padding-right: 7%;
 }
 
 /*Header*/
@@ -315,6 +317,8 @@ header a:hover{
 
 .ownerDetail{
     display: flex;
+    color: black;
+    text-decoration: none;
     background-color: #FFFFFF;
     width: 35% !important;
     padding: 1%;
@@ -554,7 +558,7 @@ header a:hover{
 }
 
 .linkArray a:first-child {
-    margin-right: 10%; /* ajustez la marge selon vos besoins */
+    margin-right: 10%;
 }
 
 .linkArray a{
@@ -649,6 +653,135 @@ nav{
     margin-top: 5%;
     padding-left: 15%;
     padding-right: 15%;
+}
+
+/*Messagerie*/
+
+.messaging{
+    display: flex;
+}
+
+.contactContainer{
+    background-color: #FAF9F7;
+    width: 25%;
+    margin-top: -5%;
+    padding-top: 5%;
+    padding-bottom: 40%;
+    margin-bottom: -5.8%;
+}
+
+.titleMessaging{
+    padding-bottom: 10%;
+    padding-left: 10%;
+}
+
+.contactCard{
+    display: flex;
+    padding-left: 10%;
+    padding-top: 4%;
+    padding-bottom: 4%;
+    cursor: pointer;
+    align-items: center;
+    text-decoration: none;
+    color: black;
+}
+
+.target{
+    background-color: #FFFFFF;
+    cursor: auto;
+}
+
+.infoContact{
+    padding-left: 2%;
+    width: 60%;
+}
+
+.contactName{
+    font-weight: 500;
+}
+
+.contactTime{
+    float: inline-end;
+}
+
+.contactPreviewMessage{
+    color:#A6A6A6;
+}
+
+.messageContainer{
+    width: 70%;
+}
+
+.headerMessageContainer{
+    display: flex;
+    padding-left: 5%;
+    align-items: center;
+    margin-bottom: 1%;
+}
+
+.headerMessageContainer img{
+    width: 80px !important;
+    height: 80px;
+}
+
+.headerMessageContainer p{
+    font-weight: 600;
+    padding-left: 5%;
+    font-size: 20px;
+}
+
+.messageContent{
+    display: flex;
+    padding-left: 5%;
+    padding-right: 1%;
+    flex-direction: column;
+    max-height: 700px;
+    overflow-y: auto;
+}
+
+.messageRecieve, .messageSend{
+    margin-top: 1%;
+    width: 60%;
+    border-radius: 5px;
+}
+
+.messageSend{
+    align-self: flex-end;
+
+}
+
+.messageRecieve p{
+    background-color: #FFFFFF;
+    padding: 2%;
+}
+
+.messageSend p{
+    background-color: #EDF2F6;
+    padding: 2%;
+}
+
+.messageTime, .messageDate{
+    font-size: 12px;
+}
+
+.messageTime{
+    float: inline-end;
+}
+
+.sendMessage{
+    display: flex;
+    padding-left: 5%;
+    justify-content: space-between;
+    position: absolute;
+    width: 60%;
+    bottom: -15%;
+}
+
+.sendMessage input{
+    width: 80%;
+}
+.sendMessage button{
+    width: 15%;
 }
 
 /*Footer*/
