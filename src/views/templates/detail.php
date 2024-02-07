@@ -9,10 +9,10 @@
         <p class="categorieDetail">DESCRIPTION</p>
         <p class="commentDetail"><?= nl2br($book->getComment());; ?></p>
         <p class="categorieDetail">PROPRIETAIRE</p>
-        <div class="ownerDetail">
+        <a href="?action=otherProfile&username=<?= $book->getUsername(); ?>"class="ownerDetail">
             <img src="<?= $book->getProfilePicture(); ?>" class="profilePictureDetail"/>
             <p class="ownerUsername"><?= $book->getUsername(); ?></p>
-        </div>
-        <a><button class="detailButton">Envoyer un message</button></a>
+        </a>
+        <a href="?action=message&id=<?= $book->getIdUser(); ?>"><button class="detailButton">Envoyer un message</button></a>
     </div>
 </div>

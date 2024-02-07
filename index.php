@@ -3,23 +3,23 @@
 require_once("./src/config/autoload.php");
 require_once("./src/config/config.php");
 
-$action = $action = isset($_GET['action']) ? $_GET['action'] : 'home';
+$action = $_GET['action'] ?? 'home';
 
 // Vérifiez si une action est spécifiée dans l'URL
 try {
     switch($action) {
         // Affichage des pages
         case 'home':
-            $bookController = new BookController();
-            $bookController->showHome();
-            break;
         case 'library':
-            $bookController = new BookController();
-            $bookController->showLibrary();
-            break;
         case 'detail':
             $bookController = new BookController();
-            $bookController->showDetail();
+            $bookController->$action();
+            break;
+        case 'message':
+            $destinataireId = $_GET['id'] ?? null;
+            $action = $destinataireId ? 'messageDestinataire' : $action;
+            $messageController = new MessageController();
+            $messageController->$action($destinataireId);
             break;
         case 'register':
             $userController = new UserController();
@@ -81,6 +81,10 @@ try {
         case 'deleteBook':
             $bookController = new BookController();
             $bookController->deleteBook();
+            break;
+        case 'sendMessage':
+            $messageController = new MessageController();
+            $messageController->sendMessage();
             break;
         default:
             // Gérez les actions non reconnues ici

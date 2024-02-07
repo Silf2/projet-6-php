@@ -10,18 +10,25 @@
 <div class="lastUpdate">
     <h1>Les derniers livres ajoutés</h1>
     <div class="cardBookContainer">
-        <?php for ($i = 0; $i < min(4, count($books)); $i++) { ?>
-            <a href="?action=detail&id=<?= $books[$i]->getId();?>" class="cardBook">
-                <img src="<?= $books[$i]->getPicture(); ?>" class="bookCoverCard" />
-                <?php if($books[$i]->getDisponibility() === "non dispo."){
-                    echo '<p class="nonDispoCard">' . $books[$i]->getDisponibility() . '</p>';
-                } 
-                ?>
-                <p class="titleCard"><?= $books[$i]->getTitle(); ?></p>
-                <p class="autorCard"><?= $books[$i]->getAutor(); ?></p>
-                <p class="vendorCard">Vendu par : <?= $books[$i]->getUsername(); ?></p>
-            </a>
-        <?php } ?>
+        <?php for ($i = 0; $i < min(4, count($books)); $i++) { 
+            echo sprintf('
+                <a href="?action=detail&id=%d" class="cardBook">
+                    <img src="%s" class="bookCoverCard" />
+                    <p class="titleCard">%s</p>
+                    <p class="autorCard">%s</p>
+                    <p class="vendorCard">Vendu par : %s</p>'
+                ,
+                $books[$i]->getId(),
+                $books[$i]->getPicture(),
+                $books[$i]->getTitle(),
+                $books[$i]->getAutor(),
+                $books[$i]->getUsername()
+            );
+            if($books[$i]->getDisponibility() === "non dispo."){
+                echo '<p class="nonDispoCard">' . $books[$i]->getDisponibility() . '</p>';
+            };
+            echo'</a>'; 
+        } ?>
     </div>
     <a href="?action=library"><button>Voir tous les livres</button></a>
 </div>

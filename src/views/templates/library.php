@@ -10,18 +10,25 @@
     </div>
     <div class="cardBookContainerCenter">
         <div class="cardBookContainer">
-            <?php foreach($books as $book) {?>
-                <a href="?action=detail&id=<?= $book->getId();?>" class="cardBook">
-                    <img src="<?= $book->getPicture(); ?>" class="bookCoverCard" />
-                    <?php if($book->getDisponibility() === "non dispo."){
-                        echo '<p class="nonDispoCard">' . $book->getDisponibility() . '</p>';
-                    } 
-                    ?>
-                    <p class="titleCard"><?= $book->getTitle(); ?></p>
-                    <p class="autorCard"><?= $book->getAutor(); ?></p>
-                    <p class="vendorCard">Vendu par : <?= $book->getUsername(); ?></p>
-                </a>
-            <?php } ?>
+            <?php foreach($books as $book) {
+                echo sprintf('
+                    <a href="?action=detail&id=%d" class="cardBook">
+                        <img src="%s" class="bookCoverCard" />
+                        <p class="titleCard">%s</p>
+                        <p class="autorCard">%s</p>
+                        <p class="vendorCard">Vendu par : %s</p>'
+                    ,
+                    $books[$i]->getId(),
+                    $books[$i]->getPicture(),
+                    $books[$i]->getTitle(),
+                    $books[$i]->getAutor(),
+                    $books[$i]->getUsername()
+                );
+                if($books[$i]->getDisponibility() === "non dispo."){
+                    echo '<p class="nonDispoCard">' . $books[$i]->getDisponibility() . '</p>';
+                };
+                echo'</a>'; 
+            } ?>
         </div>
     </div>
 </div>

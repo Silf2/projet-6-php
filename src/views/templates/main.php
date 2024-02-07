@@ -17,7 +17,7 @@
         <a href="index.php?action=home">Accueil</a>
         <a href="?action=library">Nos livres à l'échange</a>
         <div class="headerSeparation"></div>
-        <a><i class="fa-regular fa-comment"></i>Messagerie</a>
+        <a href="?action=message"><i class="fa-regular fa-comment"></i>Messagerie</a>
         <a href="?action=profile"><i class="fa-solid fa-user"></i>Mon compte</a>
         <?php 
             if (isset($_SESSION['user'])){

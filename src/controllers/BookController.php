@@ -1,7 +1,7 @@
 <?php
 
 Class BookController extends AbstractController{
-    public function showHome() : void {
+    public function home() : void {
         $bookManager = new BookManager();
         $books = $bookManager->getAllBooks();
 
@@ -9,7 +9,7 @@ Class BookController extends AbstractController{
         $view->render("home", ["books"=> $books]);
     }
 
-    public function showLibrary() : void {
+    public function library() : void {
         $bookManager = new BookManager();
         $books = $bookManager->getAllBooks();
 
@@ -27,7 +27,7 @@ Class BookController extends AbstractController{
         $view->render("library", ["books"=> $books]);
     }
 
-    public function showDetail(): void{
+    public function detail(): void{
         $id = $_GET['id'];
 
         $bookManager = new BookManager();
