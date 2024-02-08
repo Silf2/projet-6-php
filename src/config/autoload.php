@@ -17,6 +17,10 @@ spl_autoload_register(function($className) {
         require_once 'src/controllers/' . $className . '.php';
     }
 
+    if (file_exists('src/controllers/connectedController/' . $className . '.php')) {
+        require_once 'src/controllers/connectedController/' . $className . '.php';
+    }
+
     // On va voir dans le dossier View si la classe existe.
     if (file_exists('src/views/' . $className . '.php')) {
         require_once 'src/views/' . $className . '.php';

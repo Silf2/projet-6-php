@@ -8,88 +8,56 @@ $action = $_GET['action'] ?? 'home';
 // Vérifiez si une action est spécifiée dans l'URL
 try {
     switch($action) {
-        // Affichage des pages
-        case 'home':
-        case 'library':
-        case 'detail':
+        case 'home':                                                        //affichage de la page d'acceuil
+        case 'library':                                                     //affichage de la bibliothèque
+        case 'detail':                                                      //affichage de la page de détail des livres
+        case 'filter':                                                      //utilisation de la barre de recherche de la bibliothèque
             $bookController = new BookController();
             $bookController->$action();
             break;
-        case 'message':
+
+        case 'formAddBook':                                                 //affichage du formulaire d'ajout de livre
+        case 'formEditBook':                                                //affichage du formulaire d'édition de livre
+        case 'addBook':                                                     //ajout d'un livre
+        case 'editBook':                                                    //modification d'un livre
+        case 'deleteBook':                                                  //suppression d'un livre
+            $bookController = new ConnectedBookController();
+            $bookController->$action();
+            break;
+
+        case 'register':                                                    //affichage du formulaire d'inscription
+        case 'connect':                                                     //affichage du formulaire de connexion
+        case 'otherProfile':                                                //affichage des autres profiles
+        case 'registerUser':                                                //Inscription d'un utilisateur
+        case 'connectUser':                                                 //Connexion d'un utilisateur
+            $userController = new UserController();
+            $userController->$action();
+            break;
+
+        case 'profile':                                                     //affichage du profil de l'utilisateur connecté
+        case 'disconnectUser':                                              //deconnexion de l'utilisateur
+        case 'modifyPP':                                                    //modification de la photo de profil
+        case 'modifyUser':                                                  //modification des autres infos du profil
+            $userController = new ConnectedUserController();
+            $userController->$action();
+            break;
+
+        case 'message':                                                     //affichage de la messagerie
             $destinataireId = $_GET['id'] ?? null;
             $action = $destinataireId ? 'messageDestinataire' : $action;
             $messageController = new MessageController();
             $messageController->$action($destinataireId);
             break;
-        case 'register':
-            $userController = new UserController();
-            $userController->showRegistering();
-            break;
-        case 'connect':
-            $userController = new UserController();
-            $userController->showConnection();
-            break;
-        case 'profile':
-            $userController = new UserController();
-            $userController->showProfile();
-            break;
-        case 'otherProfile':
-            $userController = new UserController();
-            $userController->showOtherUserProfile();
-            break;
-        case 'formAddBook':
-            $bookController = new BookController();
-            $bookController->showFormAddBook();
-            break;
-        case 'formEditBook':
-            $bookController = new BookController();
-            $bookController->showFormEditBook();
-            break;
-        //Utilisation des fonctionnalités    
-        case 'filter': 
-            $bookController = new BookController();
-            $bookController->showLibraryWithFilter();
-            break;
-        case 'registerUser':
-            $userController = new UserController();
-            $userController->registerUser();
-            break;    
-        case 'connectUser':
-            $userController = new UserController();
-            $userController->connectUser();
-            break;
-        case 'disconnectUser':
-            $userController = new UserController();
-            $userController->disconnectUser();
-            break;
-        case 'modifyPP':
-            $userController = new UserController();
-            $userController->modifyPP();
-            break;
-        case 'modifyUser':
-            $userController = new UserController();
-            $userController->modifyUser();
-            break;
-        case 'addBook':
-            $bookController = new BookController();
-            $bookController->addBook();
-            break;
-        case 'editBook':
-            $bookController = new BookController();
-            $bookController->editBook();
-            break;
-        case 'deleteBook':
-            $bookController = new BookController();
-            $bookController->deleteBook();
-            break;
-        case 'sendMessage':
+        case 'sendMessage':                                                 //envoie de message
             $messageController = new MessageController();
             $messageController->sendMessage();
             break;
+
         default:
-            // Gérez les actions non reconnues ici
-            break;
+            throw new Exception("La page demandée n'existe pas.");
+
     } 
 } catch (Exception $e) {
-    echo $e->getMessage();
+    $errorView = new View('Erreur');
+    $errorView->render('error', ['errorMessage' => $e->getMessage()]);
 }

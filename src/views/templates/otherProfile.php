@@ -8,11 +8,11 @@
             }
         ?>
         <div class="profileSeparation"></div>
-        <h1 class="username"><?php echo $user->getUsername();?></h1>
+        <h1 class="username"><?= $user->getUsername();?></h1>
         <p class="member">Membre depuis 1 an</p>
         <p class="library">Bibliothèque</p>
-        <p class="bookPossessed"><?php echo $quantityOfBookPossessed; ?> livre(s)</p>
-        <button>Écrire un message</button>
+        <p class="bookPossessed"><?= $quantityOfBookPossessed; ?> livre(s)</p>
+        <a href="?action=message&id=<?= $user->getId(); ?>"><button>Écrire un message</button></a>
     </div>
     <div class="profileRight">
         <table class="allBookPossessed">

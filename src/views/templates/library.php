@@ -18,14 +18,14 @@
                         <p class="autorCard">%s</p>
                         <p class="vendorCard">Vendu par : %s</p>'
                     ,
-                    $books[$i]->getId(),
-                    $books[$i]->getPicture(),
-                    $books[$i]->getTitle(),
-                    $books[$i]->getAutor(),
-                    $books[$i]->getUsername()
+                    $book->getId(),
+                    $book->getPicture(),
+                    $book->getTitle(),
+                    $book->getAutor(),
+                    $book->getUsername()
                 );
-                if($books[$i]->getDisponibility() === "non dispo."){
-                    echo '<p class="nonDispoCard">' . $books[$i]->getDisponibility() . '</p>';
+                if($book->getDisponibility() === "non dispo."){
+                    echo '<p class="nonDispoCard">' . $book->getDisponibility() . '</p>';
                 };
                 echo'</a>'; 
             } ?>

@@ -1,25 +1,21 @@
 <?php
 
 class MessageController extends AbstractController{
-
-    /*public function __construct() {
-        parent::__construct();
-        $this->checkIfUserIsConnected();
-    }*/
-
     public function message(): void{
-        $contacts = (new UserManager())->getAllMessagerieUser($_SESSION['id_user']);
+        $idUser = $_SESSION['id_user'];
+        $contacts = (new UserManager())->getAllMessagerieUser($idUser);
 
         $view = new View("Messagerie");
         $view->render("messaging", ["contacts"=> $contacts]);
     }
 
     public function messageDestinataire(int $destinataireId): void{
+        $idUser = $_SESSION['id_user'];
         $user = $this->denyAccessUserNotFound($destinataireId);
 
-        $contacts = (new UserManager())->getAllMessagerieUser($_SESSION['id_user']);
-        $messages = (new MessageManager())->getAllMessages($_SESSION['id_user'], $destinataireId);
-        //$lastMessage = (new MessageManager())->getLastMessage($_SESSION['id_user'], $destinataireId);
+        $contacts = (new UserManager())->getAllMessagerieUser($idUser);
+        $messages = (new MessageManager())->getAllMessages($idUser, $destinataireId);
+        //$lastMessage = (new MessageManager())->getLastMessage($idUser, $destinataireId);
 
         $view = new View("Messagerie");
         $view->render(
@@ -28,7 +24,7 @@ class MessageController extends AbstractController{
                 "contacts" => $contacts,
                 "user" => $user, 
                 "messages" => $messages,
-                "userId" => $_SESSION['id_user'] ?? null, 
+                "userId" => $idUser ?? null, 
                 "destinataireId" => $_GET['id'] ?? null,
             ]
         );

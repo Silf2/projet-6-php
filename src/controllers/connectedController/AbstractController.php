@@ -1,10 +1,11 @@
 <?php
 
 class AbstractController{
-    public function checkIfUserIsConnected() : void
+    public function __construct()
     {
         if(!isset($_SESSION['user'])){
             header('Location: ?action=register');
+            exit;
         }
     }
 
