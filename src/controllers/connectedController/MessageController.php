@@ -4,9 +4,16 @@ class MessageController extends AbstractController{
     public function message(): void{
         $idUser = $_SESSION['id_user'];
         $contacts = (new UserManager())->getAllMessagerieUser($idUser);
+        $lastMessages = (new MessageManager())->getLastMessage($idUser, $contacts);
 
         $view = new View("Messagerie");
-        $view->render("messaging", ["contacts"=> $contacts]);
+        $view->render(
+            "messaging", 
+            [
+                "contacts"=> $contacts,
+                "lastMessages"=> $lastMessages,
+            ]
+        );
     }
 
     public function messageDestinataire(int $destinataireId): void{
@@ -14,14 +21,15 @@ class MessageController extends AbstractController{
         $user = $this->denyAccessUserNotFound($destinataireId);
 
         $contacts = (new UserManager())->getAllMessagerieUser($idUser);
+        $lastMessages = (new MessageManager())->getLastMessage($idUser, $contacts);
         $messages = (new MessageManager())->getAllMessages($idUser, $destinataireId);
-        //$lastMessage = (new MessageManager())->getLastMessage($idUser, $destinataireId);
 
         $view = new View("Messagerie");
         $view->render(
             "messaging", 
             [   
                 "contacts" => $contacts,
+                "lastMessages"=> $lastMessages,
                 "user" => $user, 
                 "messages" => $messages,
                 "userId" => $idUser ?? null, 

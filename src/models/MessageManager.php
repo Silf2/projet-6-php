@@ -28,30 +28,52 @@ class MessageManager extends AbstractEntityManager{
         $messages = [];
 
         while ($message = $result->fetch()){
-             $messages[] = new Message($message);
+            $messages[] = new Message($message); 
         }
         return $messages;
     }
 
-    public function getLastMessage(int $idAuteur, int $idDestinataire): ?Message{
+    public function getLastMessage(int $idAuteur, array $contacts): ?array{
+
         $sql = <<<SQL
-            SELECT * 
+            SELECT
+                CONCAT(
+                    GREATEST(message.id_recipient, message.id_autor),
+                        "-", 
+                    LEAST(message.id_recipient, message.id_autor)
+                ) AS uniqueId, message.*
             FROM message
-            WHERE id_autor = :id_autor AND id_recipient = :id_recipient 
-            OR id_autor = :id_recipient AND id_recipient = :id_autor
-            ORDER BY id DESC;
-            LIMIT 1;
+            INNER JOIN (
+                        SELECT user.id
+                        FROM user 
+                        INNER JOIN(
+                            SELECT id_autor AS userId FROM message WHERE id_recipient = :id_recipient
+                            UNION
+                            SELECT id_recipient userId FROM message WHERE id_autor = :id_autor
+                        ) AS tmp ON user.id = tmp.userId
+            ) AS contact
+            ON ( message.id_recipient = contact.id 
+                OR message.id_autor = contact.id)
+            AND (message.id_recipient = :id_recipient
+                OR message.id_autor = :id_autor)
+            GROUP BY 1
+            ORDER BY message.date DESC;
         SQL;
 
-        $result = $this->db->query($sql, [
-            ':id_autor'=> $idAuteur,
-            ':id_recipient'=> $idDestinataire
-        ]);
-        $message =  $result->fetch(PDO::FETCH_ASSOC);
+        $lastMessages = [];
+        
+        foreach($contacts as $contact){
+            $result = $this->db->query($sql, [
+                ':id_autor'=> $idAuteur,
+                ':id_recipient'=> $contact->getId()
+            ]);
+            $message =  $result->fetch(PDO::FETCH_ASSOC);
 
-        if($message){
-            return new Message($message);
+            if($message){
+                $lastMessages[] = new Message($message);
+            }
+            $result->closeCursor();
         }
-        return null;
+        return $lastMessages;
     }
 }

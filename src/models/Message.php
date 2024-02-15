@@ -70,9 +70,8 @@ class Message extends AbstractEntity{
     /**
      * Get the value of date
      */ 
-    public function getDate(): ?DateTime
+    public function getDate()
     {
-        var_dump($this->date);
         return $this->date;
     }
 
@@ -81,7 +80,7 @@ class Message extends AbstractEntity{
      *
      * @return  self
      */ 
-    public function setDateCreation(string|DateTime $date, string $format = 'Y-m-d H:i:s') : void 
+    public function setDate(string|DateTime $date, string $format = 'Y-m-d H:i:s') : void 
     {
         if (is_string($date)) {
             $date = DateTime::createFromFormat($format, $date);
@@ -91,13 +90,11 @@ class Message extends AbstractEntity{
 
     public function getOnlyDate() 
     {
-        $dateTime = $this->getDate();
-        var_dump($dateTime);
-        return $dateTime->format('d/m/Y');
+        return $this->date->format('d/m');
     }
 
     public function getOnlyTime()
     {
-        return $this->date->format('H:i:s');
+        return $this->date->format('H:i');
     }
 }

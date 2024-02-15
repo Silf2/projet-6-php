@@ -260,7 +260,6 @@ header a:hover{
 .greyBackground .cardBookContainer{
     flex-wrap: wrap;
     width: 90%;
-    justify-content: space-between;
 }
 
 /*Detail Page*/
@@ -365,6 +364,12 @@ header a:hover{
 
 .registerPage a{
     color: black;
+}
+
+.registerPage button{
+    width: 50%;
+    margin-top: 5%;
+    margin-bottom: 5%;
 }
 
 /*ProfilePage*/
