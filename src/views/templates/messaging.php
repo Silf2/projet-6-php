@@ -30,7 +30,7 @@
                     }
                 }
                 echo sprintf(
-                    '   <img src="%s" class="profilePictureDetail" />
+                    '   <img src="%s" class="profilePictureDetail" alt="Photo de profil de %s"/>
                         <div class="infoContact">
                             <span class="contactName">%s</span>
                             <span class="contactTime">%s</span>
@@ -38,6 +38,7 @@
                         </div>    
                     </a>', 
                     $contact->getProfilePicture(),
+                    $contact->getUsername(),
                     $contact->getUsername(),
                     $lastMessageTime,
                     $lastMessageContent,
@@ -49,7 +50,7 @@
     <div class="messageContainer">
         <?php if(isset($idDestinataire)){ ?>
             <div class="headerMessageContainer">
-                <img src="<?= $user->getProfilePicture();?>" class="profilePictureDetail" />
+                <img src="<?= $user->getProfilePicture();?>" class="profilePictureDetail" alt="<?= $user->getUsername(); ?>" />
                 <p class="messageName"><?= $user->getUsername(); ?></p>
             </div>
             <div class="messageContent" id="messageContent">

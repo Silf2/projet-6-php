@@ -73,6 +73,20 @@ header a:hover{
 }
 
 /*Homepage*/
+.button{
+    color: #FFFFFF;
+    background-color: #00AC66;
+    font-size: 25px;
+    padding: 2%;
+    border-radius: 15px;
+    text-decoration: none;
+}
+
+.reverse{
+    background-color: #FAF9F7;
+    color: #00AC66;
+    border: 1px solid #00AC66;
+}
 .homeDiscover{
     background-color: #F5F3EF;
     display: flex;
@@ -84,6 +98,7 @@ header a:hover{
 
 .homeDiscover p{
     width: 50%;
+    margin-bottom: 3%;
 }
 
 .homeDiscover h1{
@@ -98,6 +113,7 @@ header a:hover{
 .lastUpdate{
     text-align: center;
     background-color: #FAF9F7;
+    padding-bottom: 5%;
 }
 
 .lastUpdate h1{
@@ -111,6 +127,7 @@ header a:hover{
 .cardBookContainer{
     display: flex;
     justify-content: center;
+    margin-bottom: 4%;
 }
 
 .cardBook {
@@ -187,6 +204,7 @@ header a:hover{
     justify-content: space-around;
     margin-left: 10%;
     margin-right: 10%;
+    margin-bottom: 4%;
 }
 
 .homeCards{

@@ -13,13 +13,14 @@
             <?php foreach($books as $book) {
                 echo sprintf('
                     <a href="?action=detail&id=%d" class="cardBook">
-                        <img src="%s" class="bookCoverCard" />
+                        <img src="%s" class="bookCoverCard" alt="couverture du livre %s"/>
                         <p class="titleCard">%s</p>
                         <p class="autorCard">%s</p>
                         <p class="vendorCard">Vendu par : %s</p>'
                     ,
                     $book->getId(),
                     $book->getPicture(),
+                    $book->getTitle(),
                     $book->getTitle(),
                     $book->getAutor(),
                     $book->getUsername()

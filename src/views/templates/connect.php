@@ -6,11 +6,11 @@
             <input type="email" name="email" id="email" required>
             <p class="requiredValue">Mot de passe</p>
             <input type="password" name="password" id="password" required>
-            </br>
+            <br>
             <button>Se connecter</button>
         </form>
         <p>Pas encore inscrit ? <a href="?action=register">Inscrivez-vous</a></p>
     </div>
 
-    <img src="../src/images/marialaura-gionfriddo-50G3FvyQxX0-unsplash 1.png"/>
+    <img src="../src/images/marialaura-gionfriddo-50G3FvyQxX0-unsplash1.png" alt="Photo d'une bibliothèque"/>
 </div>

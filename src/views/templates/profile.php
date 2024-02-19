@@ -4,9 +4,9 @@
         <div class="profileLeft">
             <?php 
                 if(!$user->getProfilePicture()){
-                    echo '<img src="../src/images/profilePicture/Mask group.png" class="profilePicture"/>';
+                    echo '<img src="../src/images/profilePicture/Mask_group.png" class="profilePicture" alt="photo de profile de base"/>';
                 } else {
-                    echo '<img src=' . $user->getProfilePicture() . ' class="profilePicture"/>';
+                    echo '<img src=' . $user->getProfilePicture() . ' class="profilePicture" alt="Photo de profil de ' . $user->getUsername() . ' "/>';
                 }
             ?>
             <form action="?action=modifyPP" method="post" enctype="multipart/form-data" class="modifyPictureForm">
@@ -28,8 +28,8 @@
                 <p class="requiredValue">Mot de passe</p>
                 <input type="password" name="password" id="password" required>
                 <p class="requiredValue">Pseudo</p>
-                <input type="text" name="username" id="username" value="<?php echo $user->getUsername(); ?>"required>
-                </br>
+                <input type="text" name="username" id="username" value="<?php echo $user->getUsername(); ?>" required>
+                <br>
                 <button>Enregistrer</button>
             </form>
         </div>
@@ -48,7 +48,7 @@
         <tbody>
             <?php foreach ($books as $book) { ?>
                 <tr>
-                    <td class="pictureInArray"><img src="<?= $book->getPicture(); ?>" class="bookPictureSmall"/></td>
+                    <td class="pictureInArray"><img src="<?= $book->getPicture(); ?>" class="bookPictureSmall" alt="Photo de la couverture du livre <?= $book->getTitle(); ?>"/></td>
                     <td class="titleInArray"><?= $book->getTitle(); ?></td>
                     <td><?= $book->getAutor(); ?></td>
                     <?php 

@@ -8,11 +8,11 @@
             <input type="email" name="email" id="email" required>
             <p class="requiredValue">Mot de passe</p>
             <input type="password" name="password" id="password" required>
-            </br>
+            <br>
             <button>S'inscrire</button>
         </form>
         <p>Déjà inscrit ? <a href="?action=connect">Connectez-vous</a></p>
     </div>
 
-    <img src="../src/images/marialaura-gionfriddo-50G3FvyQxX0-unsplash 1.png"/>
+    <img src="../src/images/marialaura-gionfriddo-50G3FvyQxX0-unsplash1.png" alt="Photo d'une bibliothèque"/>
 </div>

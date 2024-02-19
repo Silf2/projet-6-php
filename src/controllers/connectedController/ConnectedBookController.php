@@ -42,7 +42,7 @@ class ConnectedBookController extends AbstractController{
         $fileExtension = strtolower(pathinfo($uploadFileName, PATHINFO_EXTENSION));
     
         if (!in_array($fileExtension, $allowedExtensions)) {
-            echo 'Seuls les fichiers JPG, JPEG et PNG sont autorisés.';
+            throw new Exception('Vérifiez que vous avez bien mis un fichier, ou que les fichiers sont enJPG, JPEG ou en PNG.');
         } else {
             if (move_uploaded_file($_FILES['bookPicture']['tmp_name'], $uploadFileName)) {
                 $picture = $uploadFileName;

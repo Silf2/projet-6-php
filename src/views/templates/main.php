@@ -13,7 +13,7 @@
 
 <body>
     <header>
-        <img src="../src/images/logo.png" class="logo"/>
+        <img src="../src/images/logo.png" class="logo" alt="logo TomTroc"/>
         <a href="index.php?action=home">Accueil</a>
         <a href="?action=library">Nos livres à l'échange</a>
         <div class="headerSeparation"></div>
@@ -36,6 +36,6 @@
         <p>Politique de confidentialité</p>
         <p>Mention légales</p>
         <p>Tom Troc©</p>
-        <img src="../src/images/logo_footer.png" />
+        <img src="../src/images/logo_footer.png" alt="logo TomTroc"/>
     </footer>
 </body>

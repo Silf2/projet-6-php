@@ -2,9 +2,9 @@
     <div class="homeLeftContainer">
         <h1>Rejoignez nos lecteurs passionnés</h1>
         <p>Donnez une nouvelle vie à vos livres en les échangeant avec d'autres amoureux de la lecture. Nous croyons en la magie du partage des connaissances et d'histoires à travers les livres</p>
-        <a href="?action=library"><button>Découvrir</button></a>
+        <a href="?action=library" class="button">Découvrir</a>
     </div>
-    <img src="../src/images/hamza-nouasria-KXrvPthkmYQ-unsplash 1.png"/>
+    <img src="../src/images/hamza-nouasria-KXrvPthkmYQ-unsplash1.png" alt="Un homme lisant au milieu de livres"/>
 </div>
 
 <div class="lastUpdate">
@@ -13,13 +13,14 @@
         <?php for ($i = 0; $i < min(4, count($books)); $i++) { 
             echo sprintf('
                 <a href="?action=detail&id=%d" class="cardBook">
-                    <img src="%s" class="bookCoverCard" />
+                    <img src="%s" class="bookCoverCard" alt="couverture de %s"/>
                     <p class="titleCard">%s</p>
                     <p class="autorCard">%s</p>
                     <p class="vendorCard">Vendu par : %s</p>'
                 ,
                 $books[$i]->getId(),
                 $books[$i]->getPicture(),
+                $books[$i]->getTitle(),
                 $books[$i]->getTitle(),
                 $books[$i]->getAutor(),
                 $books[$i]->getUsername()
@@ -30,7 +31,7 @@
             echo'</a>'; 
         } ?>
     </div>
-    <a href="?action=library"><button>Voir tous les livres</button></a>
+    <a href="?action=library" class="button">Voir tous les livres</a>
 </div>
 
 <div class="homePresentation">
@@ -42,8 +43,8 @@
         <p class="homeCards">Parcourez les livres disponibles chez d'autres membres.</p>
         <p class="homeCards">Proposez un échange et discutez avec d'autres passionnés de lecture.</p>
     </div>
-    <a href="?action=library"><button>Voir tous les livres</button></a>
-   <img src="../src/images/clay-banks-4uH8rdyEbH4-unsplash 1.png" class="band" />
+    <a href="?action=library" class="button reverse">Voir tous les livres</a>
+   <img src="../src/images/clay-banks-4uH8rdyEbH4-unsplash1.png" class="band" alt="Une femme de dos regardant des livres"/>
 
    <div class="homePresentationText">
         <h1>Nos valeurs</h1>

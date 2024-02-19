@@ -4,7 +4,7 @@
     <form action="?action=addBook" method="post" enctype="multipart/form-data" class="addBook">
         <div class="addBookLeft">
             <p class="requiredValue">Photo</p>
-            <img src="../src/images/bookCover/frosty-ilze-tfYL1j1jKNo-unsplash 1.png" class="bookPicture"/>
+            <img src="../src/images/bookCover/frosty-ilze-tfYL1j1jKNo-unsplash1.png" class="bookPicture" alt="Photo de livre par défaut"/>
             <label for="bookPictureButton" class="uploadBookPicture">Ajouter une photo</label>
             <input type="file" name="bookPicture" id="bookPictureButton">
         </div>
